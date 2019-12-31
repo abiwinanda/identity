@@ -19,14 +19,18 @@ defmodule Identity.MixProject do
   # Run "mix help compile.app" to learn about applications.
   def application do
     [
-      extra_applications: [:logger]
+      extra_applications: [:logger],
+      mod: {Identity.Application, []}
     ]
   end
 
   # Run "mix help deps" to learn about dependencies.
   defp deps do
     [
-      {:ecto, "~> 3.3"},
+      {:ecto, "~> 3.1"},
+      {:ecto_sql, "~> 3.1"},
+      {:postgrex, ">= 0.0.0"},
+      {:scaffolder, "~> 0.1.0"},
       {:ex_doc, "~> 0.21", only: :dev, runtime: false},
     ]
   end
