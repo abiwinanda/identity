@@ -15,4 +15,16 @@ defmodule Identity.User do
     many_to_many :permissions, Identity.Permission, join_through: "id_user_permissions"
   end
 
+  @doc false
+  def changeset(user, attrs) do
+    user
+    |> cast(attrs, [
+      :username,
+      :email,
+      :google_id,
+      :facebook_id,
+      :is_active])
+    |> validate_required([:username, :email])
+  end
+
 end

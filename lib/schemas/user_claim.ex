@@ -11,4 +11,14 @@ defmodule Identity.UserClaim do
       foreign_key: :user_id
   end
 
+  @doc false
+  def changeset(user_claim, attrs) do
+    user_claim
+    |> cast(attrs, [
+      :claim_type,
+      :claim_value,
+      :user_id])
+    |> validate_required([:claim_type, :claim_value, :user_id])
+  end
+
 end
