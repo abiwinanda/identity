@@ -11,6 +11,7 @@ defmodule Identity.MixProject do
       description: description(),
       package: package(),
       deps: deps(),
+      aliases: aliases(),
       name: "Identity",
       source_url: "https://github.com/abiwinanda/identity"
     ]
@@ -32,6 +33,13 @@ defmodule Identity.MixProject do
       {:postgrex, ">= 0.0.0"},
       {:scaffolder, "~> 0.1.0"},
       {:ex_doc, "~> 0.21", only: :dev, runtime: false},
+    ]
+  end
+
+  defp aliases do
+    [
+      "ecto.reset": ["ecto.drop", "ecto.setup"],
+      "ecto.setup": ["ecto.create", "ecto.migrate"],
     ]
   end
 
