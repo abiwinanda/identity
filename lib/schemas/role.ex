@@ -9,8 +9,8 @@ defmodule Identity.Role do
     belongs_to :user, Identity.User,
       references: :id,
       foreign_key: :creator_id
-    many_to_many :users, Identity.User, join_through: "user_roles"
-    many_to_many :permissions, Identity.Permission, join_through: "role_permissions"
+    many_to_many :users, Identity.User, join_through: "id_user_roles"
+    many_to_many :permissions, Identity.Permission, join_through: "id_role_permissions"
   end
 
 end

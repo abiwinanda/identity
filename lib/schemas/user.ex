@@ -11,8 +11,8 @@ defmodule Identity.User do
 
     has_many :claims, Identity.UserClaim
     has_many :user_logins, Identity.UserLogin
-    many_to_many :roles, Identity.Role, join_through: "user_roles"
-    many_to_many :permissions, Identity.Permission, join_through: "user_permissions"
+    many_to_many :roles, Identity.Role, join_through: "id_user_roles"
+    many_to_many :permissions, Identity.Permission, join_through: "id_user_permissions"
   end
 
 end
